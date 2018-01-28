@@ -21,29 +21,29 @@ public class Application : Gtk.Window {
 
 	public Application () {
 		// Prepare Gtk.Window:
-		this.title = "Demo";
-		this.window_position = Gtk.WindowPosition.CENTER;
-		this.destroy.connect (Gtk.main_quit);
-		this.set_default_size (350, 70);
+        this.title = "Demo";
+        this.window_position = Gtk.WindowPosition.CENTER;
+        this.destroy.connect (Gtk.main_quit);
+        this.set_default_size (350, 70);
 
         Gtk.Box box = new Gtk.Box (Gtk.Orientation.VERTICAL, 6);
 
-		// The Model:
-		Gtk.ListStore list_store = new Gtk.ListStore (1, typeof (SomeObject));
-		Gtk.TreeIter iter;
+        // The Model:
+        Gtk.ListStore list_store = new Gtk.ListStore (1, typeof (SomeObject));
+        Gtk.TreeIter iter;
 
-		list_store.append (out iter);
+        list_store.append (out iter);
         list_store.set (iter, 0, new SomeObject.with_name ("Joe"));
-		list_store.append (out iter);
+        list_store.append (out iter);
         list_store.set (iter, 0, new SomeObject.with_name ("Jane"));
-		list_store.append (out iter);
+        list_store.append (out iter);
         list_store.set (iter, 0, new SomeObject.with_name ("Ada"));
-		list_store.append (out iter);
+        list_store.append (out iter);
         list_store.set (iter, 0, new SomeObject.with_name ("Jarvis"));
 
-		// The View:
-		Gtk.TreeView view = new Gtk.TreeView.with_model (list_store);
-		box.add (view);
+        // The View:
+        Gtk.TreeView view = new Gtk.TreeView.with_model (list_store);
+        box.add (view);
 
         Gtk.ToggleButton button = new Gtk.ToggleButton.with_label ("Change obj at row 3");
         button.toggled.connect (() => {
@@ -51,7 +51,6 @@ public class Application : Gtk.Window {
             SomeObject obj;
             list_store.get_iter_from_string (out niter, "2");
             list_store.@get (niter, 0, out obj);
-
             if (button.active) {
                 obj.name = "Megatron";
             } else {
@@ -62,8 +61,7 @@ public class Application : Gtk.Window {
         box.add (button);
 
         this.add (box);
-
-		Gtk.CellRendererText cell = new Gtk.CellRendererText ();
+        Gtk.CellRendererText cell = new Gtk.CellRendererText ();
         view.insert_column_with_data_func (-1, "Name", cell, (column, cell, model, iter) => { 
             SomeObject obj;
             model.@get (iter, 0, out obj); 
@@ -71,12 +69,12 @@ public class Application : Gtk.Window {
         }); 
 	}
 
-	public static int main (string[] args) {
-		Gtk.init (ref args);
+    public static int main (string[] args) {
+        Gtk.init (ref args);
 
-		Application app = new Application ();
-		app.show_all ();
-		Gtk.main ();
-		return 0;
-	}
+        Application app = new Application ();
+        app.show_all ();
+        Gtk.main ();
+        return 0;
+    }
 }
