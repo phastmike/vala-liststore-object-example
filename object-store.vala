@@ -67,7 +67,7 @@ public class Application : Gtk.Window {
             model.@get (iter, 0, out obj); 
             (cell as Gtk.CellRendererText).text = obj.name;
         }); 
-	}
+    }
 
     public static int main (string[] args) {
         Gtk.init (ref args);
