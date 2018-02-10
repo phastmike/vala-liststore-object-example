@@ -27,7 +27,7 @@ list_store.set (iter, 0, new SomeObject.with_name ("Jarvis"));
 
 ## Changes to objects in the model
 
-To change an object, we should retrieve it from the model, do some changes and set the object to the model. To examplify, we added a toggle button that will change the name of the object, at row 3, from Ada to Megatron and vice versa:
+To change an object, we should retrieve it from the model, do some changes and set the object to the model. To exemplify, we added a toggle button that will change the name of the object, at row 3, from Ada to Megatron and vice versa:
 
 ```Vala
 Gtk.ToggleButton button = new Gtk.ToggleButton.with_label ("Change obj at row 3");
