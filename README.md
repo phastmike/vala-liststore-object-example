@@ -6,7 +6,7 @@ As using objects is vague and generic we must map the object fields and/or prope
 
 ## The Model (ListStore)
 
-The model is prepared to contains Objects of type SomeObject:
+The model is prepared to contain Objects of type SomeObject:
 
 ```Vala
 Gtk.ListStore list_store = new Gtk.ListStore (1, typeof (SomeObject));

@@ -20,7 +20,7 @@ public class SomeObject : Object {
 public class Application : Gtk.Window {
 
 	public Application () {
-		// Prepare Gtk.Window:
+        // Prepare Gtk.Window:
         this.title = "Demo";
         this.window_position = Gtk.WindowPosition.CENTER;
         this.destroy.connect (Gtk.main_quit);
